@@ -17,6 +17,7 @@ const countries = fetchCountries(event.target.value.trim()).then(data => {
     countryInfo.innerHTML = '';
 
     if(data.length > 10) {
+        countryList.innerHTML = '';
         Notify.info(`Too many matches found. Please enter a more specific name.`);
         return;   
     }
@@ -47,6 +48,7 @@ const countries = fetchCountries(event.target.value.trim()).then(data => {
     }
 })
 .catch(err => {
+    countryList.innerHTML = '';
     Notify.failure('Oops, there is no country with that name'); 
     console.log(Notify.failure);
   })
